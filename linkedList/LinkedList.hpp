@@ -49,6 +49,7 @@ for(int i=0;i<m_size;i++)
 	if(temp->getValue()==value)
 	{
 		isFound=true;
+		
 	}
 	else
 	{
@@ -120,6 +121,20 @@ bool LinkedList<T>::removeBack()
 	/** TODO 
 		Fix this method
 	*/
+if (!isEmpty())
+{
+	secondintoLast=m_front;
+	lastNode=secondintoLast->getNext();
+	while(lastNode->getNext()!=nullptr)
+	{
+		secondintoLast=lastNode;
+		lastNode=lastNode->getNext();
+	}
+	delete lastNode;
+	secondintoLast->setNext(nullptr);
+	m_size--;
+	isRemoved=true;
+}
 
 	return(isRemoved);
 }	
